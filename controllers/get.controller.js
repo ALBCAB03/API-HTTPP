@@ -33,6 +33,8 @@ module.exports.usersconsults = async(req, res) => {
     } else if (!userPos && !userBadg && userPriv){
         const consultUser =await Post.find({privileges:'user'}).select('name');
         res.status(200).json(consultUser);
+    } else{
+        res.status(400).json("No valido")
     }
 };
 
